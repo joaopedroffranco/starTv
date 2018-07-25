@@ -1,5 +1,5 @@
 {
-  "name": "tveasy",
+  "name": "startv",
   "version": "1.0.0",
   "description": "Navigation module for web hosted apps in TVs",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joaopedroffranco/tveasy.git"
+    "url": "git+https://github.com/joaopedroffranco/starTv.git"
   },
   "keywords": [
     "tv",
@@ -17,7 +17,7 @@
   "author": "João Pedro Fabiano Franco",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/joaopedroffranco/tveasy/issues"
+    "url": "https://github.com/joaopedroffranco/starTv/issues"
   },
-  "homepage": "https://github.com/joaopedroffranco/tveasy#readme"
+  "homepage": "https://github.com/joaopedroffranco/starTv#readme"
 }
