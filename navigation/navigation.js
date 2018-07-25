@@ -1,4 +1,5 @@
 import Track from './track';
+import Mosaic from './mosaic';
 
 class Navigation {
     constructor(controls) {
@@ -16,7 +17,7 @@ class Navigation {
         switch (type) {
             case Navigation.types.verticaltrack: this.type = new Track(startindex, animated, true); break;
             case Navigation.types.horizontaltrack: this.type = new Track(startindex, animated); break;
-            case Navigation.types.mosaic: this.type = new Track(startindex, animated); break;
+            case Navigation.types.mosaic: this.type = new Mosaic(animated); break;
             default: this.type = new Track(startindex, animated); break;
         }
     }
