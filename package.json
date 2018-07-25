@@ -1,0 +1,23 @@
+{
+  "name": "navigation-tv",
+  "version": "1.0.0",
+  "description": "Navigation module for web hosted apps in TVs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaopedroffranco/navigation-tv.git"
+  },
+  "keywords": [
+    "tv",
+    "navigation"
+  ],
+  "author": "João Pedro Fabiano Franco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joaopedroffranco/navigation-tv/issues"
+  },
+  "homepage": "https://github.com/joaopedroffranco/navigation-tv#readme"
+}
