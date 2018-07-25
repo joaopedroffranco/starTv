@@ -1,5 +1,5 @@
 {
-  "name": "navigation-tv",
+  "name": "tveasy",
   "version": "1.0.0",
   "description": "Navigation module for web hosted apps in TVs",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joaopedroffranco/navigation-tv.git"
+    "url": "git+https://github.com/joaopedroffranco/tveasy.git"
   },
   "keywords": [
     "tv",
@@ -17,7 +17,7 @@
   "author": "João Pedro Fabiano Franco",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/joaopedroffranco/navigation-tv/issues"
+    "url": "https://github.com/joaopedroffranco/tveasy/issues"
   },
-  "homepage": "https://github.com/joaopedroffranco/navigation-tv#readme"
+  "homepage": "https://github.com/joaopedroffranco/tveasy#readme"
 }
