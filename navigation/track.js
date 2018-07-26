@@ -6,10 +6,10 @@ class Track {
         this.startindex =  Number.isInteger(startindex) ? { groupIndex: 0, elementIndex: 0 } : startindex;
 		this.animated = animated;
 		this.vertical = vertical;
+		this.groupIndex = this.startindex.groupIndex;
     }
     
     update(elements) {
-        this.groupIndex = this.startindex.groupIndex;
 		this.groups = Array(elements.length);
 		this.parent = null;
 		elements.forEach((elementsGroup, index) => {
