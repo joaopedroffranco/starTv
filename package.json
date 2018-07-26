@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/joaopedroffranco/starTv/issues"
   },
-  "homepage": "https://github.com/joaopedroffranco/starTv#readme"
+  "homepage": "https://github.com/joaopedroffranco/starTv#readme",
+  "devDependencies": {
+    "jest": "^23.4.1"
+  }
 }
