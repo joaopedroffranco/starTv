@@ -1,8 +1,6 @@
-import Navigation from './navigation';
-
 class Group {
-	constructor(elements, animated = false) {
-		this.index = 0;
+	constructor(elements, startindex = 0, animated = false) {
+		this.index = startindex;
 		this.elements = elements;
 		this.parent = null;
 		this.animated = animated;

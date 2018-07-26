@@ -3,26 +3,24 @@ import Navigation from './navigation';
 
 class Track {
 	constructor(startindex, vertical, animated = false) {
-        this.startindex =  Number.isInteger(startindex) ? { groupIndex: 0, elementIndex: 0 } : startindex;
+        this.index = startindex;
 		this.animated = animated;
 		this.vertical = vertical;
-		this.groupIndex = this.startindex.groupIndex;
+		this.startGroupIndex = 0;
     }
     
     update(elements) {
 		this.groups = Array(elements.length);
 		this.parent = null;
 		elements.forEach((elementsGroup, index) => {
-			this.groups[index] = new Group(elementsGroup, this.animated);
-			if (index === this.startindex.groupIndex) {
-				this.groups[index].index = this.startindex.elementIndex;
-			}
+			this.groups[index] = new Group(elementsGroup, this.index === index && this.startGroupIndex < elementsGroup.length ? this.startGroupIndex : 0, this.animated);
 		});
+		this.index = this.index < elements.length ? this.index : 0;
     }
 
 	up() {
 		if (this.vertical) {
-			const group = this.groups[this.groupIndex];
+			const group = this.groups[this.index];
 			group.previous();
 		} else {
 			this.previous();
@@ -31,7 +29,7 @@ class Track {
 
 	down() {
 		if (this.vertical) {
-			const group = this.groups[this.groupIndex];
+			const group = this.groups[this.index];
 			group.next();
 		} else {
 			this.next();
@@ -42,7 +40,7 @@ class Track {
 		if (this.vertical) {
 			this.previous();
 		} else {
-			const group = this.groups[this.groupIndex];
+			const group = this.groups[this.index];
 			group.previous();
 		}
 	}
@@ -51,23 +49,23 @@ class Track {
 		if (this.vertical) {
 			this.next();
 		} else {
-			const group = this.groups[this.groupIndex];
+			const group = this.groups[this.index];
 			group.next();
 		}
 	}
 
 	next() {
-		const nextIndex = this.groupIndex + 1;
-		this.groupIndex = nextIndex >= this.groups.length ? this.groupIndex : nextIndex;
+		const nextIndex = this.index + 1;
+		this.index = nextIndex >= this.groups.length ? this.index : nextIndex;
 	}
 
 	previous() {
-		const prevIndex = this.groupIndex - 1;
-		this.groupIndex = prevIndex < 0 ? this.groupIndex : prevIndex;
+		const prevIndex = this.index - 1;
+		this.index = prevIndex < 0 ? this.index : prevIndex;
 	}
 
 	focus(element = null) {
-		const group = this.groups[this.groupIndex];
+		const group = this.groups[this.index];
 		const currentDOM = element == null ?
 			Navigation.findNode(group.elements[group.index]) :
 			Navigation.findNode(element);
@@ -75,10 +73,12 @@ class Track {
 		if (currentDOM !== null) {
 			currentDOM.focus();
 		}
+
+		this.startGroupIndex = (this.hasElements() && this.groups[this.index]) ? this.groups[this.index].index : 0;
 	}
 
 	hasElements() {
-		return !!this.groups.length;
+		return this.groups && !!this.groups.length;
 	}
 }
 
