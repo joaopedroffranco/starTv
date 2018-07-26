@@ -1,5 +1,5 @@
-import TV from './tvs';
-import Navigation from '../navigation/navigation';
+const TV = require('./tvs');
+const Navigation = require('../navigation/navigation');
 
 class Plataform {
     constructor() {
@@ -20,4 +20,4 @@ class Plataform {
 	}
 }
 
-export default Plataform;
+module.exports = Plataform;

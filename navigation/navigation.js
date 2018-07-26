@@ -1,5 +1,5 @@
-import Track from './track';
-import Mosaic from './mosaic';
+const Track = require('./track');
+const Mosaic = require('./mosaic');
 
 class Navigation {
     constructor(controls) {
@@ -15,10 +15,10 @@ class Navigation {
         this.onExit = onExit;
         
         switch (type) {
-            case Navigation.types.verticaltrack: this.type = new Track(startindex, animated, true); break;
-            case Navigation.types.horizontaltrack: this.type = new Track(startindex, animated); break;
+            case Navigation.types.verticaltrack: this.type = new Track(startindex, true, animated); break;
+            case Navigation.types.horizontaltrack: this.type = new Track(startindex, false, animated); break;
             case Navigation.types.mosaic: this.type = new Mosaic(animated); break;
-            default: this.type = new Track(startindex, animated); break;
+            default: this.type = new Track(startindex, false, animated); break;
         }
     }
     
@@ -67,4 +67,4 @@ Navigation.types = {
     mosaic: 3
 }
 
-export default Navigation;
+module.exports = Navigation;

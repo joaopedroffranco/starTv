@@ -1,9 +1,9 @@
-import Group from './group';
-import Navigation from './navigation';
+const Group = require('./group');
+const Navigation = require('./navigation');
 
 class Track {
-	constructor(startindex, animated = false, vertical = false) {
-        this.startindex = startindex === 0 ? { groupIndex: 0, elementIndex: 0 } : startindex;
+	constructor(startindex, vertical, animated = false) {
+        this.startindex =  Number.isInteger(startindex) ? { groupIndex: 0, elementIndex: 0 } : startindex;
 		this.animated = animated;
 		this.vertical = vertical;
     }
@@ -26,7 +26,6 @@ class Track {
 			group.previous();
 		} else {
 			this.previous();
-			this.scroll();
 		}
 	}
 
@@ -36,14 +35,12 @@ class Track {
 			group.next();
 		} else {
 			this.next();
-			this.scroll();
 		}
 	}
 
 	left() {
 		if (this.vertical) {
 			this.previous();
-			this.scroll();
 		} else {
 			const group = this.groups[this.groupIndex];
 			group.previous();
@@ -53,7 +50,6 @@ class Track {
 	right() {
 		if (this.vertical) {
 			this.next();
-			this.scroll();
 		} else {
 			const group = this.groups[this.groupIndex];
 			group.next();
@@ -62,7 +58,7 @@ class Track {
 
 	next() {
 		const nextIndex = this.groupIndex + 1;
-		this.groupIndex = nextIndex > this.groups.length - 1 ? this.groupIndex : nextIndex;
+		this.groupIndex = nextIndex >= this.groups.length ? this.groupIndex : nextIndex;
 	}
 
 	previous() {
@@ -84,21 +80,6 @@ class Track {
 	hasElements() {
 		return !!this.groups.length;
 	}
-
-	scroll() {
-		if (this.animated) {
-			const group = this.groups[this.groupIndex];
-			const element = group.elements[group.index];
-			const elementDOM = Navigation.findNode(element);
-			if (elementDOM && this.groupIndex > 0) {
-				if (!this.parent) {
-					this.parent = elementDOM.parentElement.parentElement.parentElement;
-				}
-				const height = 50;
-				this.parent.style.marginTop = `${-height * (this.groupIndex - 1)}px`;
-			}
-		}
-	}
 }
 
-export default Track;
+module.exports = Track;

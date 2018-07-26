@@ -1,4 +1,4 @@
-import Navigation from "./navigation";
+const Navigation = require('./navigation');
 
 class Group {
 	constructor(elements, animated = false) {
@@ -10,38 +10,21 @@ class Group {
 
 	next() {
 		const nextIndex = this.index + 1;
-		this.index = nextIndex > this.elements.length - 1 ? this.index : nextIndex;
-        this.scroll();
+		this.index = nextIndex >= this.elements.length ? this.index : nextIndex;
 	}
 
 	previous() {
 		const prevIndex = this.index - 1;
 		this.index = prevIndex < 0 ? this.index : prevIndex;
-        this.scroll();
 	}
 
 	isFirstElement() {
-		return this.index !== 0;
+		return this.elements.length > 0 && this.index === 0;
 	}
 
 	isLastElement() {
-		return this.index !== this.elements.length - 1;
-	}
-
-	scroll() {
-		if (this.animated) {
-			const element = this.elements[this.index];
-			const elementDOM = Navigation.findNode(element);
-
-			if (elementDOM) {
-				if (!this.parent) {
-					this.parent = elementDOM.parentElement;
-				}
-				const width = 50;
-				this.parent.style.marginLeft = `${-width * this.index}px`;
-			}
-		}
+		return this.index === this.elements.length - 1;
 	}
 }
 
-export default Group;
+module.exports = Group;
