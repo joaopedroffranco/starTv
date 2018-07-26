@@ -1,4 +1,4 @@
-const Navigation = require('./navigation');
+import Navigation from './navigation';
 
 class Group {
 	constructor(elements, animated = false) {
@@ -27,4 +27,4 @@ class Group {
 	}
 }
 
-module.exports = Group;
+export default Group;

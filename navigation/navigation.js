@@ -1,5 +1,5 @@
-const Track = require('./track');
-const Mosaic = require('./mosaic');
+import Track from './track';
+import Mosaic from './mosaic';
 
 class Navigation {
     constructor(controls) {
@@ -67,4 +67,4 @@ Navigation.types = {
     mosaic: 3
 }
 
-module.exports = Navigation;
+export default Navigation;

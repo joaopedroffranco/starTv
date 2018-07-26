@@ -1,5 +1,5 @@
-const Group = require('./group');
-const Navigation = require('./navigation');
+import Group from './group';
+import Navigation from './navigation';
 
 class Track {
 	constructor(startindex, vertical, animated = false) {
@@ -82,4 +82,4 @@ class Track {
 	}
 }
 
-module.exports = Track;
+export default Track;

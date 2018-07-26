@@ -1,4 +1,4 @@
-const Group = require('../group');
+import Group from '../group';
 
 /* Constructor */
 describe('creating group', () => {

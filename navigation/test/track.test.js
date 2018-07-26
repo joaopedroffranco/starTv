@@ -1,4 +1,4 @@
-const Track = require('../track');
+import Track from '../track';
 
 /* Constructor */
 describe('creating track', () => {

@@ -134,4 +134,4 @@ const TV = {
     }
 };
 
-module.exports = TV;
+export default TV;
