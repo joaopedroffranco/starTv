@@ -1,4 +1,4 @@
-const Group = '../group';
+import Group from '../group';
 
 /* Constructor */
 describe('creating group', () => {
@@ -13,7 +13,7 @@ describe('creating group', () => {
     });
     
     test('animated', () => {
-        const group = new Group([], true);
+        const group = new Group([], 0, true);
         expect(group).toEqual({
             index: 0,
             parent: null,
