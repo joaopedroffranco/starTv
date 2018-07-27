@@ -1,5 +1,5 @@
-import Group from './group';
-import Navigation from './navigation';
+const Group = './group';
+const Navigation = './navigation';
 
 class Track {
 	constructor(startindex, vertical, animated = false) {
@@ -82,4 +82,4 @@ class Track {
 	}
 }
 
-export default Track;
+module.exports = Track;

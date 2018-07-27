@@ -1,4 +1,4 @@
-import Track from '../track';
+const Track = '../track';
 
 /* Constructor */
 describe('creating track', () => {

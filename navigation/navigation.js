@@ -1,5 +1,5 @@
-import Track from './track';
-import Mosaic from './mosaic';
+const Track = './track';
+const Mosaic = './mosaic';
 
 class Navigation {
     constructor(controls) {
@@ -67,4 +67,4 @@ Navigation.types = {
     mosaic: 3
 }
 
-export default Navigation;
+module.exports = Navigation;
