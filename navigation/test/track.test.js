@@ -204,6 +204,43 @@ describe('updating with elements', () => {
         track.up();
         expect(track.index).toBe(0);
     });
+
+    test('track starts with 1 groups with 5 elements and update to same group, but 6 elements, and update to 5 elements again', () => {
+        const track = new Track(0, true);
+        track.update([[1, 2, 3, 4, 5]]);
+        expectGroupLenght(track.groups, [5]);
+        expect(track.groups.length).toBe(1);
+        expect(track.index).toBe(0);
+        expect(track.startGroupIndex).toBe(0);
+
+        track.down();
+        track.down();
+        track.down();
+        track.down();
+        track.down();
+        track.down();
+
+        expect(track.index).toBe(0);
+        expect(track.startGroupIndex).toBe(4);
+
+        track.update([[1, 2, 3, 4, 5, 6]]);
+        expectGroupLenght(track.groups, [6]);
+        expect(track.groups.length).toBe(1);
+        expect(track.index).toBe(0);
+        expect(track.startGroupIndex).toBe(4);
+
+        track.down();
+        expect(track.startGroupIndex).toBe(5);
+
+        track.update([[1, 2, 3, 4, 5]]);
+        expectGroupLenght(track.groups, [5]);
+        expect(track.groups.length).toBe(1);
+        expect(track.index).toBe(0);
+        expect(track.startGroupIndex).toBe(0);
+
+        track.down();
+        expect(track.startGroupIndex).toBe(1);
+    });
 });
 
 /* Up */
