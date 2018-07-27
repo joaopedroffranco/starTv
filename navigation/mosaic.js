@@ -1,4 +1,4 @@
-const Navigation = './navigation';
+import Navigation from './navigation';
 
 class Mosaic {
 	constructor(animated = false) {
@@ -48,4 +48,4 @@ class Mosaic {
 	}
 }
 
-module.exports = Mosaic;
+export default Mosaic;

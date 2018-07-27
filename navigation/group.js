@@ -25,4 +25,4 @@ class Group {
 	}
 }
 
-module.exports = Group;
+export default Group;
