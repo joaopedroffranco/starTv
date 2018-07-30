@@ -4,14 +4,15 @@ const Navigation = require('../navigation/navigation');
 function Plataform(findNode) {
 	this.settings = TV.plataforms[window.location.pathname.split('/')[1]] || TV.plataforms.pc;
 
-	const { dependences, controls } = this.settings;
+	const dependences = this.settings.dependences;
+	const controls = this.settings.controls;
 	dependences.get();
 	this.navigation = new Navigation(controls, findNode);
 }
 
 Plataform.prototype.router = function(pathname) {
-	const { path } = this.current;
-	return `/${path}/${pathname}`;
+	const path = this.current.path;
+	return '/' + path + '/' + pathname;
 }
 
 Plataform.prototype.isOnline = function() {

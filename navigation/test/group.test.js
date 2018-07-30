@@ -6,7 +6,6 @@ describe('creating group', () => {
         const group = new Group([]);
         expect(group).toEqual({
             index: 0,
-            parent: null,
             animated: false,
             elements: []
         });
@@ -16,7 +15,6 @@ describe('creating group', () => {
         const group = new Group([], 0, true);
         expect(group).toEqual({
             index: 0,
-            parent: null,
             animated: true,
             elements: []
         });

@@ -9,7 +9,6 @@ function Track(startindex, vertical, findNode, animated = false) {
 }
 Track.prototype.update = function(elements) {
 	this.groups = Array(elements.length);
-	this.parent = null;
 	elements.forEach((elementsGroup, index) => {
 		if (this.index === index) {
 			this.startGroupIndex = this.startGroupIndex < elementsGroup.length ? this.startGroupIndex : 0;

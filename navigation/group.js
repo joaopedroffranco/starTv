@@ -1,7 +1,6 @@
 function Group(elements, startindex = 0, animated = false) {
 	this.index = startindex;
 	this.elements = elements;
-	this.parent = null;
 	this.animated = animated;
 }
 
