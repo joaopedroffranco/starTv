@@ -1,11 +1,10 @@
-import Navigation from './navigation';
-
 class Mosaic {
-	constructor(animated = false) {
+	constructor(findNode, animated = false) {
         this.x = 0;
         this.y = 0;
         this.animated = animated;
-        this.elements = [[]];
+		this.elements = [[]];
+		this.findNode = findNode;
     }
     
     update(elements) {
@@ -35,8 +34,8 @@ class Mosaic {
 	focus(element = null) {
 		const el = this.elements[this.x][this.y];
 		const currentDOM = element == null ?
-			Navigation.findNode(el) :
-			Navigation.findNode(element);
+			this.findNode(el) :
+			this.findNode(element);
 
 		if (currentDOM !== null) {
 			currentDOM.focus();
@@ -48,4 +47,4 @@ class Mosaic {
 	}
 }
 
-export default Mosaic;
+module.exports = Mosaic;

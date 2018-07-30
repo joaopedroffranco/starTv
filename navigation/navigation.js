@@ -1,13 +1,10 @@
-import Track from './track';
-import Mosaic from './mosaic';
+const Track = require('./track');
+const Mosaic = require('./mosaic');
 
 class Navigation {
-    constructor(controls) {
-        if (!Navigation.findNode) {
-            console.error('Navigation is not correctly set. Plase, set the find node function');
-        } else {
-            this.controls = controls;
-        }
+    constructor(controls, findNode) {
+        this.findNode = findNode;
+        this.controls = controls;
     }
 
     set(onReturn, onExit, type, animated = false, startindex = 0) {
@@ -15,10 +12,10 @@ class Navigation {
         this.onExit = onExit;
         
         switch (type) {
-            case Navigation.types.verticaltrack: this.type = new Track(startindex, true, animated); break;
-            case Navigation.types.horizontaltrack: this.type = new Track(startindex, false, animated); break;
-            case Navigation.types.mosaic: this.type = new Mosaic(animated); break;
-            default: this.type = new Track(startindex, false, animated); break;
+            case Navigation.types.verticaltrack: this.type = new Track(startindex, true, this.findNode, animated); break;
+            case Navigation.types.horizontaltrack: this.type = new Track(startindex, false, this.findNode, animated); break;
+            case Navigation.types.mosaic: this.type = new Mosaic(this.findNode, animated); break;
+            default: this.type = new Track(startindex, false, this.findNode, animated); break;
         }
     }
     
@@ -56,11 +53,10 @@ class Navigation {
     }
 }
 
-Navigation.findNode = null; // Should be set
 Navigation.types = {
     verticaltrack: 1,
     horizontaltrack: 2,
     mosaic: 3
 }
 
-export default Navigation;
+module.exports = Navigation;

@@ -1,12 +1,12 @@
-import Group from './group';
-import Navigation from './navigation';
+const Group = require('./group');
 
 class Track {
-	constructor(startindex, vertical, animated = false) {
+	constructor(startindex, vertical, findNode, animated = false) {
         this.index = startindex;
 		this.animated = animated;
 		this.vertical = vertical;
 		this.startGroupIndex = 0;
+		this.findNode = findNode;
     }
     
     update(elements) {
@@ -78,8 +78,8 @@ class Track {
 	focus(element = null) {
 		const group = this.groups[this.index];
 		const currentDOM = element == null ?
-			Navigation.findNode(group.elements[group.index]) :
-			Navigation.findNode(element);
+			this.findNode(group.elements[group.index]) :
+			this.findNode(element);
 
 		if (currentDOM !== null) {
 			currentDOM.focus();
@@ -91,4 +91,4 @@ class Track {
 	}
 }
 
-export default Track;
+module.exports = Track;

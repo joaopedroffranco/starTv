@@ -1,13 +1,13 @@
-import TV from './tvs';
-import Navigation from '../navigation/navigation';
+const TV = require('./tvs');
+const Navigation = require('../navigation/navigation');
 
 class Plataform {
-    constructor() {
+    constructor(findNode) {
 		this.settings = TV.plataforms[window.location.pathname.split('/')[1]] || TV.plataforms.pc;
 
 		const { dependences, controls } = this.settings;
 		dependences.get();
-		this.navigation = new Navigation(controls);
+		this.navigation = new Navigation(controls, findNode);
     }
 
 	router(pathname) {
@@ -20,4 +20,4 @@ class Plataform {
 	}
 }
 
-export default Plataform;
+module.exports = Plataform;

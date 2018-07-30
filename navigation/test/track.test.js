@@ -1,40 +1,45 @@
-import Track from '../track';
+const Track = require('../track');
+
+const findNode = jest.fn();
 
 /* Constructor */
 describe('creating track', () => {
     test('valid startindex', () => {
-        const track = new Track(2, false);
+        const track = new Track(2, false, findNode);
         expect(track).toEqual({
             index: 2,
             animated: false,
             vertical: false,
-            startGroupIndex: 0
+            startGroupIndex: 0,
+            findNode: findNode
         });
     });
 
     test('animated', () => {
-        const track = new Track(0, false, true);
+        const track = new Track(0, false, findNode, true);
         expect(track).toEqual({
             index: 0,
             animated: true,
             vertical: false,
-            startGroupIndex: 0
+            startGroupIndex: 0,
+            findNode: findNode
         });
     });
 
     test('vertical', () => {
-        const track = new Track(0, true);
+        const track = new Track(0, true, findNode);
         expect(track).toEqual({
             index: 0,
             animated: false,
             vertical: true,
-            startGroupIndex: 0
+            startGroupIndex: 0,
+            findNode: findNode
         });
     });
 });
 
 describe('updating with elements', () => {
-    const track = new Track(0, false);
+    const track = new Track(0, false, findNode);
     const expectGroupLenght = (groups, expectLenght) => {
         groups.forEach((group, index) => {
             expect(group.elements.length).toBe(expectLenght[index]);
@@ -66,7 +71,7 @@ describe('updating with elements', () => {
     });
 
     test('track starts with 2 groups and update for the same', () => {
-        const track = new Track(0, false);
+        const track = new Track(0, false, findNode);
         track.update([[1, 2], [1, 2, 3]]);
         expectGroupLenght(track.groups, [2, 3]);
         expect(track.groups.length).toBe(2);
@@ -90,7 +95,7 @@ describe('updating with elements', () => {
     });
 
     test('track starts with 2 groups and update for 2 groups, but less elements', () => {
-        const track = new Track(0, false);
+        const track = new Track(0, false, findNode);
         track.update([[1, 2], [1, 2, 3]]);
         expectGroupLenght(track.groups, [2, 3]);
         expect(track.groups.length).toBe(2);
@@ -117,7 +122,7 @@ describe('updating with elements', () => {
     });
 
     test('track starts with 2 groups, go to second group and update for 1 group', () => {
-        const track = new Track(0, false);
+        const track = new Track(0, false, findNode);
         track.update([[1, 2], [1, 2, 3]]);
         expectGroupLenght(track.groups, [2, 3]);
         expect(track.groups.length).toBe(2);
@@ -147,7 +152,7 @@ describe('updating with elements', () => {
     });
 
     test('track starts with 2 groups and update for 1 group', () => {
-        const track = new Track(0, false);
+        const track = new Track(0, false, findNode);
         track.update([[1, 2], [1, 2, 3]]);
         expectGroupLenght(track.groups, [2, 3]);
         expect(track.groups.length).toBe(2);
@@ -176,7 +181,7 @@ describe('updating with elements', () => {
     });
 
     test('track starts with 2 groups and update for no group', () => {
-        const track = new Track(0, false);
+        const track = new Track(0, false, findNode);
         track.update([[1, 2], [1, 2, 3]]);
         expectGroupLenght(track.groups, [2, 3]);
         expect(track.groups.length).toBe(2);
@@ -206,7 +211,7 @@ describe('updating with elements', () => {
     });
 
     test('track starts with 1 groups with 5 elements and update to same group, but 6 elements, and update to 5 elements again', () => {
-        const track = new Track(0, true);
+        const track = new Track(0, true, findNode);
         track.update([[1, 2, 3, 4, 5]]);
         expectGroupLenght(track.groups, [5]);
         expect(track.groups.length).toBe(1);
@@ -246,7 +251,7 @@ describe('updating with elements', () => {
 /* Up */
 describe('up', () => {
     test('horizontal', () => {
-        const track = new Track(0, false);
+        const track = new Track(0, false, findNode);
         track.previous = jest.fn();
 
         track.update([[1, 2, 3], [1, 2, 3, 4]]);
@@ -256,7 +261,7 @@ describe('up', () => {
     });
 
     test('vertical', () => {
-        const track = new Track(0, true);
+        const track = new Track(0, true, findNode);
         track.previous = jest.fn();
 
         track.update([[1, 2, 3], [1, 2, 3, 4]]);
@@ -269,7 +274,7 @@ describe('up', () => {
 /* Down */
 describe('down', () => {
     test('horizontal', () => {
-        const track = new Track(0, false);
+        const track = new Track(0, false, findNode);
         track.next = jest.fn();
 
         track.update([[1, 2, 3], [1, 2, 3, 4]]);
@@ -279,7 +284,7 @@ describe('down', () => {
     });
 
     test('vertical', () => {
-        const track = new Track(0, true);
+        const track = new Track(0, true, findNode);
         track.next = jest.fn();
 
         track.update([[1, 2, 3], [1, 2, 3, 4]]);
@@ -292,7 +297,7 @@ describe('down', () => {
 /* Left */
 describe('left', () => {
     test('horizontal', () => {
-        const track = new Track(0, false);
+        const track = new Track(0, false, findNode);
         track.previous = jest.fn();
 
         track.update([[1, 2, 3], [1, 2, 3, 4]]);
@@ -302,7 +307,7 @@ describe('left', () => {
     });
 
     test('vertical', () => {
-        const track = new Track(0, true);
+        const track = new Track(0, true, findNode);
         track.previous = jest.fn();
 
         track.update([[1, 2, 3], [1, 2, 3, 4]]);
@@ -315,7 +320,7 @@ describe('left', () => {
 /* Right */
 describe('right', () => {
     test('horizontal', () => {
-        const track = new Track(0, false);
+        const track = new Track(0, false, findNode);
         track.next = jest.fn();
 
         track.update([[1, 2, 3], [1, 2, 3, 4]]);
@@ -325,7 +330,7 @@ describe('right', () => {
     });
 
     test('vertical', () => {
-        const track = new Track(0, true);
+        const track = new Track(0, true, findNode);
         track.next = jest.fn();
 
         track.update([[1, 2, 3], [1, 2, 3, 4]]);
@@ -338,7 +343,7 @@ describe('right', () => {
 /* Next */
 describe('next group', () => {
     test('track with 3 groups', () => {
-        const track = new Track(0, false)
+        const track = new Track(0, false, findNode)
         track.update([[1, 2, 3], [1, 2, 3], [1, 2, 3]]);
         expect(track.index).toBe(0);
         track.next();
@@ -350,7 +355,7 @@ describe('next group', () => {
     });
 
     test('track with 1 group', () => {
-        const track = new Track(0, false)
+        const track = new Track(0, false, findNode)
         track.update([[1]]);
         expect(track.index).toBe(0);
         track.next();
@@ -362,7 +367,7 @@ describe('next group', () => {
     });
 
     test('track with no group', () => {
-        const track = new Track(0, false)
+        const track = new Track(0, false, findNode)
         track.update([[]]);
         expect(track.index).toBe(0);
         track.next();
@@ -377,7 +382,7 @@ describe('next group', () => {
 /* Previous */
 describe('previous element', () => {
     test('track with 3 groups', () => {
-        const track = new Track(0, false)
+        const track = new Track(0, false, findNode)
         track.update([[1, 2, 3], [1, 2, 3], [1, 2, 3]]);
         expect(track.index).toBe(0);
         track.previous();
@@ -394,7 +399,7 @@ describe('previous element', () => {
     });
 
     test('track with 1 group', () => {
-        const track = new Track(0, false)
+        const track = new Track(0, false, findNode)
         track.update([1]);
         expect(track.index).toBe(0);
         track.previous();
@@ -406,7 +411,7 @@ describe('previous element', () => {
     });
 
     test('track with no group', () => {
-        const track = new Track(0, false)
+        const track = new Track(0, false, findNode)
         track.update([]);
         expect(track.index).toBe(0);
         track.previous();
