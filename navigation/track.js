@@ -1,5 +1,3 @@
-'use strict';
-
 const Group = require('./group');
 
 function Track(startindex, vertical, findNode, animated) {
@@ -12,7 +10,7 @@ function Track(startindex, vertical, findNode, animated) {
 
 Track.prototype.update = function(elements) {
 	this.groups = Array(elements.length);
-	for (let i = 0, len = elements.length; i < len; i++) {
+	for (var i = 0, len = elements.length; i < len; i++) {
 		const elementsGroup = elements[i];
 		if (this.index === i) {
 			this.startGroupIndex = this.startGroupIndex < elementsGroup.length ? this.startGroupIndex : 0;
