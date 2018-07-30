@@ -31,7 +31,11 @@ class Navigation {
     }
 
     isValid(keycode) {
-        return Object.values(this.controls).find((e) => e === keycode);
+        return keycode === this.controls.left ||
+            keycode === this.controls.up ||
+            keycode === this.controls.down ||
+            keycode === this.controls.right ||
+            keycode === this.controls.return;
     }
     
     move(keycode) {
