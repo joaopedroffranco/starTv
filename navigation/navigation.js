@@ -6,7 +6,7 @@ function Navigation(controls, findNode) {
     this.controls = controls;
 }
 
-Navigation.prototype.set(onReturn, onExit, type, animated = false, startindex = 0) {
+Navigation.prototype.set = function(onReturn, onExit, type, animated = false, startindex = 0) {
     this.onReturn = onReturn;
     this.onExit = onExit;
     
