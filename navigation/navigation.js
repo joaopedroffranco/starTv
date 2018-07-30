@@ -29,17 +29,9 @@ class Navigation {
     focus() {
         this.type.focus();
     }
-
-    isValid(keycode) {
-        return keycode === this.controls.left ||
-            keycode === this.controls.up ||
-            keycode === this.controls.down ||
-            keycode === this.controls.right ||
-            keycode === this.controls.return;
-    }
     
     move(keycode) {
-		if (this.type.hasElements() && this.isValid(keycode)) {
+		if (this.type.hasElements()) {
 			switch (keycode) {
 			case this.controls.left:
 				this.type.left();
