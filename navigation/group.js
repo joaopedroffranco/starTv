@@ -1,7 +1,7 @@
-function Group(elements, startindex = 0, animated = false) {
-	this.index = startindex;
+function Group(elements, startindex, animated) {
+	this.index = startindex || 0;
 	this.elements = elements;
-	this.animated = animated;
+	this.animated = animated || false;
 }
 
 Group.prototype.next = function() {

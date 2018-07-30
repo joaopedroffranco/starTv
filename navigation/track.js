@@ -1,8 +1,10 @@
+'use strict';
+
 const Group = require('./group');
 
-function Track(startindex, vertical, findNode, animated = false) {
+function Track(startindex, vertical, findNode, animated) {
 	this.index = startindex;
-	this.animated = animated;
+	this.animated = animated || false;
 	this.vertical = vertical;
 	this.startGroupIndex = 0;
 	this.findNode = findNode;

@@ -1,7 +1,7 @@
-function Mosaic(findNode, animated = false) {
+function Mosaic(findNode, animated) {
 	this.x = 0;
 	this.y = 0;
-	this.animated = animated;
+	this.animated = animated || false;
 	this.elements = [[]];
 	this.findNode = findNode;
 }
