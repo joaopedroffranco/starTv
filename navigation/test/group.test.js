@@ -1,8 +1,8 @@
 const Group = require('../group');
 
 /* Constructor */
-describe('creating group', () => {
-    test('simple', () => {
+describe('creating group', function() {
+    test('simple', function() {
         const group = new Group([]);
         expect(group).toEqual({
             index: 0,
@@ -11,7 +11,7 @@ describe('creating group', () => {
         });
     });
     
-    test('animated', () => {
+    test('animated', function() {
         const group = new Group([], 0, true);
         expect(group).toEqual({
             index: 0,
@@ -22,8 +22,8 @@ describe('creating group', () => {
 });
 
 /* Next */
-describe('next element', () => {
-    test('group of 3', () => {
+describe('next element', function() {
+    test('group of 3', function() {
         const group = new Group([1, 2, 3]);
         expect(group.index).toBe(0);
         group.next();
@@ -34,7 +34,7 @@ describe('next element', () => {
         expect(group.index).toBe(2);
     });
 
-    test('group of 1', () => {
+    test('group of 1', function() {
         const group = new Group([1]);
         expect(group.index).toBe(0);
         group.next();
@@ -45,7 +45,7 @@ describe('next element', () => {
         expect(group.index).toBe(0);
     });
 
-    test('group of nothing', () => {
+    test('group of nothing', function() {
         const group = new Group([]);
         expect(group.index).toBe(0);
         group.next();
@@ -58,8 +58,8 @@ describe('next element', () => {
 });
 
 /* Previous */
-describe('previous element', () => {
-    test('group of 3', () => {
+describe('previous element', function() {
+    test('group of 3', function() {
         const group = new Group([1, 2, 3]);
         expect(group.index).toBe(0);
         group.previous();
@@ -75,7 +75,7 @@ describe('previous element', () => {
         expect(group.index).toBe(0);
     });
 
-    test('group of 1', () => {
+    test('group of 1', function() {
         const group = new Group([1]);
         expect(group.index).toBe(0);
         group.previous();
@@ -86,7 +86,7 @@ describe('previous element', () => {
         expect(group.index).toBe(0);
     });
 
-    test('group of nothing', () => {
+    test('group of nothing', function() {
         const group = new Group([]);
         expect(group.index).toBe(0);
         group.previous();
@@ -99,22 +99,22 @@ describe('previous element', () => {
 });
 
 /* isFirst */
-describe('is first element', () => {
-    test('group of 3', () => {
+describe('is first element', function() {
+    test('group of 3', function() {
         const group = new Group([1, 2, 3]);
         expect(group.isFirstElement()).toBeTruthy();
         group.next();
         expect(group.isFirstElement()).toBeFalsy();
     });
 
-    test('group of 1', () => {
+    test('group of 1', function() {
         const group = new Group([1]);
         expect(group.isFirstElement()).toBeTruthy();
         group.next();
         expect(group.isFirstElement()).toBeTruthy();
     });
 
-    test('group of nothing', () => {
+    test('group of nothing', function() {
         const group = new Group([]);
         expect(group.isFirstElement()).toBeFalsy();
         group.next();
@@ -123,8 +123,8 @@ describe('is first element', () => {
 });
 
 /* isLast */
-describe('is last element', () => {
-    test('group of 3', () => {
+describe('is last element', function() {
+    test('group of 3', function() {
         const group = new Group([1, 2, 3]);
         expect(group.isLastElement()).toBeFalsy();
         group.next();
@@ -133,14 +133,14 @@ describe('is last element', () => {
         expect(group.isLastElement()).toBeTruthy();
     });
 
-    test('group of 1', () => {
+    test('group of 1', function() {
         const group = new Group([1]);
         expect(group.isLastElement()).toBeTruthy();
         group.next();
         expect(group.isLastElement()).toBeTruthy();
     });
 
-    test('group of nothing', () => {
+    test('group of nothing', function() {
         const group = new Group([]);
         expect(group.isLastElement()).toBeFalsy();
         group.next();

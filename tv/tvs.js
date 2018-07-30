@@ -17,7 +17,7 @@ const TV = {
                 return: 461,
                 exit: 27
             },
-            exitApp: () => { window.PalmSystem.platformBack(); },
+            exitApp: function() { window.PalmSystem.platformBack(); },
             dependences: dependencesDefault
         },
         netcast: {
@@ -32,7 +32,7 @@ const TV = {
                 return: 461,
                 exit: 27
             },
-            exitApp: () => { window.NetCastBack(); },
+            exitApp: function() { window.NetCastBack(); },
             dependences: dependencesDefault
         },
         tizen: {
@@ -47,15 +47,15 @@ const TV = {
                 return: 10009,
                 exit: 10182
             },
-            exitApp: () => { window.tizen.application.getCurrentApplication().exit(); },
+            exitApp: function() { window.tizen.application.getCurrentApplication().exit(); },
             dependences: {
-                get: () => {
+                get: function() {
                     const script = document.createElement('script');
                     script.src = '$WEBAPIS/webapis/webapis.js';
                     script.type = 'text/javascript';
                     document.body.appendChild(script);
                 },
-                registerKeys: () => {
+                registerKeys: function() {
                     const inputdevice = window.tizen.tvinputdevice;
                     const usedKeys = [
                         'MediaPlayPause',
@@ -83,7 +83,7 @@ const TV = {
                 return: 461,
                 exit: 27
             },
-            exitApp: () => { window.close(); },
+            exitApp: function() { window.close(); },
             dependences: dependencesDefault
         },
         panasonic: {
@@ -98,7 +98,7 @@ const TV = {
                 return: 461,
                 exit: 27
             },
-            exitApp: () => { },
+            exitApp: function() { },
             dependences: dependencesDefault
         },
         pc: {
@@ -113,7 +113,7 @@ const TV = {
                 return: 69,
                 exit: 27
             },
-            exitApp: () => { window.close(); },
+            exitApp: function() { window.close(); },
             dependences: dependencesDefault
         },
         mac: {
@@ -128,7 +128,7 @@ const TV = {
                 return: 8,
                 exit: 27
             },
-            exitApp: () => { window.close(); },
+            exitApp: function() { window.close(); },
             dependences: dependencesDefault
         }
     }

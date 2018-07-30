@@ -9,14 +9,16 @@ function Track(startindex, vertical, findNode, animated) {
 	this.startGroupIndex = 0;
 	this.findNode = findNode;
 }
+
 Track.prototype.update = function(elements) {
 	this.groups = Array(elements.length);
-	elements.forEach((elementsGroup, index) => {
-		if (this.index === index) {
+	for (let i = 0, len = elements.length; i < len; i++) {
+		const elementsGroup = elements[i];
+		if (this.index === i) {
 			this.startGroupIndex = this.startGroupIndex < elementsGroup.length ? this.startGroupIndex : 0;
 		}
-		this.groups[index] = new Group(elementsGroup, this.index === index ? this.startGroupIndex : 0, this.animated);
-	});
+		this.groups[i] = new Group(elementsGroup, this.index === i ? this.startGroupIndex : 0, this.animated);
+	}
 	this.index = this.index < elements.length ? this.index : 0;
 }
 
