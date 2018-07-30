@@ -74,9 +74,9 @@ Track.prototype.previous = function() {
 	this.index = prevIndex < 0 ? this.index : prevIndex;
 }
 
-Track.prototype.focus = function(element = null) {
+Track.prototype.focus = function(element) {
 	const group = this.groups[this.index];
-	const currentDOM = element == null ?
+	const currentDOM = element ?
 		this.findNode(group.elements[group.index]) :
 		this.findNode(element);
 

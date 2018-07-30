@@ -30,9 +30,9 @@ Mosaic.prototype.right = function() {
 	this.x = prevX < 0 ? this.x : prevX;
 }
 
-Mosaic.prototype.focus = function(element = null) {
+Mosaic.prototype.focus = function(element) {
 	const el = this.elements[this.x][this.y];
-	const currentDOM = element == null ?
+	const currentDOM = element ?
 		this.findNode(el) :
 		this.findNode(element);
 
