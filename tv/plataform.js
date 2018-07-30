@@ -1,13 +1,13 @@
 const TV = require('./tvs');
 const Navigation = require('../navigation/navigation');
 
-function Plataform(findNode) {
+function Plataform() {
 	this.settings = TV.plataforms[window.location.pathname.split('/')[1]] || TV.plataforms.pc;
 
 	const dependences = this.settings.dependences;
 	const controls = this.settings.controls;
 	dependences.get();
-	this.navigation = new Navigation(controls, findNode);
+	this.navigation = new Navigation(controls);
 }
 
 Plataform.prototype.router = function(pathname) {
