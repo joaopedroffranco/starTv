@@ -1,6 +1,6 @@
 const dependencesDefault = {
-	get: () => {},
-	registerKeys: () => {}
+	get: function() {},
+	registerKeys: function() {}
 };
 
 const TV = {
@@ -134,4 +134,4 @@ const TV = {
     }
 };
 
-module.exports = TV;
+export default TV;
