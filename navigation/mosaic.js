@@ -34,7 +34,7 @@ function Mosaic(animated) {
 		const el = this.elements[this.x][this.y];
 		const currentDOM = element || el;
 
-		if (currentDOM !== null) {
+		if (currentDOM && currentDOM.focus) {
 			currentDOM.focus();
 		}
 	}

@@ -77,7 +77,7 @@ function Track(startindex, vertical, animated) {
 		const group = this.groups[this.index];
 		const currentDOM = element || group.elements[group.index];
 
-		if (currentDOM !== null) {
+		if (currentDOM && currentDOM.focus) {
 			currentDOM.focus();
 		}
 	}
