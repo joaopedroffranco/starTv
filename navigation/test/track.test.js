@@ -227,6 +227,21 @@ describe('updating with elements', function() {
         track.down();
         expect(track.startGroupIndex).toBe(1);
     });
+
+    test('track starts in first group and last element', function() {
+        const track = new Track(0, false, 2);
+        track.update([[1, 2, 3], [1, 2, 3]]);
+        expect(track.index).toBe(0);
+        expect(track.startGroupIndex).toBe(2);
+
+        track.left();
+        expect(track.index).toBe(0);
+        expect(track.startGroupIndex).toBe(1);
+
+        track.down();
+        expect(track.index).toBe(1);
+        expect(track.startGroupIndex).toBe(0);
+    });
 });
 
 /* Up */
