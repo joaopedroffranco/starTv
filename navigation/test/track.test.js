@@ -8,7 +8,7 @@ describe('creating track', function() {
     });
 
     test('animated', function() {
-        const track = new Track(0, false, true);
+        const track = new Track(0, false, 0, true);
         expect(track.animated).toBe(true);
     });
 

@@ -1,10 +1,10 @@
 const Group = require('./group');
 
-function Track(startindex, vertical, animated) {
+function Track(startindex, vertical, startGroupIndex, animated) {
 	this.index = startindex;
-	this.animated = animated || false;
 	this.vertical = vertical;
-	this.startGroupIndex = 0;
+	this.animated = animated || false;
+	this.startGroupIndex = startGroupIndex || 0;
 
 	this.update = function(elements) {
 		this.groups = Array(elements.length);
