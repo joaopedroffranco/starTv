@@ -4,20 +4,12 @@ const Group = require('../group');
 describe('creating group', function() {
     test('simple', function() {
         const group = new Group([]);
-        expect(group).toEqual({
-            index: 0,
-            animated: false,
-            elements: []
-        });
+        expect(group.elements).toEqual([]);
     });
     
     test('animated', function() {
         const group = new Group([], 0, true);
-        expect(group).toEqual({
-            index: 0,
-            animated: true,
-            elements: []
-        });
+        expect(group.animated).toBe(true);
     });
 });
 

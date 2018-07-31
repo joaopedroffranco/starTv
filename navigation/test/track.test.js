@@ -4,32 +4,17 @@ const Track = require('../track');
 describe('creating track', function() {
     test('valid startindex', function() {
         const track = new Track(2, false);
-        expect(track).toEqual({
-            index: 2,
-            animated: false,
-            vertical: false,
-            startGroupIndex: 0,
-        });
+        expect(track.index).toBe(2);
     });
 
     test('animated', function() {
         const track = new Track(0, false, true);
-        expect(track).toEqual({
-            index: 0,
-            animated: true,
-            vertical: false,
-            startGroupIndex: 0
-        });
+        expect(track.animated).toBe(true);
     });
 
     test('vertical', function() {
         const track = new Track(0, true);
-        expect(track).toEqual({
-            index: 0,
-            animated: false,
-            vertical: true,
-            startGroupIndex: 0
-        });
+        expect(track.vertical).toBe(true);
     });
 });
 
