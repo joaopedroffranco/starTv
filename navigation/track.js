@@ -81,6 +81,14 @@ function Track(startindex, vertical, startGroupIndex) {
 		}
 	}
 
+	this.isFirstTrack = function() {
+		return this.groups.length > 0 && this.index === 0;
+	}
+
+	this.isLastTrack = function() {
+		return this.groups.length > 0 && this.index === this.groups.length - 1;
+	}
+
 	this.hasElements = function() {
 		return this.groups && !!this.groups.length;
 	}

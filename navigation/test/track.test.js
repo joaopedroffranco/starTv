@@ -9,7 +9,7 @@ describe('creating track', function() {
 
     test('vertical', function() {
         const track = new Track(0, true);
-        expect(track.vertical).toBe(true);
+        expect(track.vertical).toBeTruthy();
     });
 });
 
@@ -411,5 +411,40 @@ describe('previous element', function() {
         expect(track.index).toBe(0);
         track.previous();
         expect(track.index).toBe(0);
+    });
+});
+
+/* First */
+describe('checks if is a first track', function() {
+    test('track with no group', function() {
+        const track = new Track(0, false, 0);
+        track.update([]);
+        expect(track.isFirstTrack()).toBeFalsy();
+    });
+
+    test('track with 2 group', function() {
+        const track = new Track(0, false, 0);
+        track.update([[1], [1]]);
+        expect(track.isFirstTrack()).toBeTruthy();
+
+        track.down();
+        expect(track.isFirstTrack()).toBeFalsy();
+    });
+});
+
+describe('checks if is a last track', function() {
+    test('track with no group', function() {
+        const track = new Track(0, false, 0);
+        track.update([]);
+        expect(track.isLastTrack()).toBeFalsy();
+    });
+
+    test('track with 2 group', function() {
+        const track = new Track(0, false, 0);
+        track.update([[1], [1]]);
+        expect(track.isLastTrack()).toBeFalsy();
+
+        track.down();
+        expect(track.isLastTrack()).toBeTruthy();
     });
 });
