@@ -14,7 +14,7 @@ function Navigation(controls) {
     }
         
     this.update = function(elements) {
-        if (type) {
+        if (this.type) {
             this.type.update(elements);
         } else {
             console.error('Please, set navigation type');
@@ -34,7 +34,7 @@ function Navigation(controls) {
     }
         
     this.move = function(keycode) {
-        if (type) {
+        if (this.type) {
             if (this.type.hasElements()) {
                 switch (keycode) {
                 case this.controls.left:
