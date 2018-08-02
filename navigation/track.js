@@ -1,9 +1,8 @@
 const Group = require('./group');
 
-function Track(startindex, vertical, startGroupIndex, animated) {
+function Track(startindex, vertical, startGroupIndex) {
 	this.index = startindex;
 	this.vertical = vertical;
-	this.animated = animated || false;
 	this.startGroupIndex = startGroupIndex || 0;
 
 	this.update = function(elements) {
@@ -13,7 +12,7 @@ function Track(startindex, vertical, startGroupIndex, animated) {
 			if (this.index === i) {
 				this.startGroupIndex = this.startGroupIndex < elementsGroup.length ? this.startGroupIndex : 0;
 			}
-			this.groups[i] = new Group(elementsGroup, this.index === i ? this.startGroupIndex : 0, this.animated);
+			this.groups[i] = new Group(elementsGroup, this.index === i ? this.startGroupIndex : 0);
 		}
 
 		this.index = this.index < elements.length ? this.index : 0;

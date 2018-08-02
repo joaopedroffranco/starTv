@@ -6,11 +6,6 @@ describe('creating group', function() {
         const group = new Group([]);
         expect(group.elements).toEqual([]);
     });
-    
-    test('animated', function() {
-        const group = new Group([], 0, true);
-        expect(group.animated).toBe(true);
-    });
 });
 
 /* Next */

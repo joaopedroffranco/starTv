@@ -1,13 +1,5 @@
 const Mosaic = require('../mosaic');
 
-/* Constructor */
-describe('creating mosaic', function() {
-    test('animated', function() {
-        const mosaic = new Mosaic(true);
-        expect(mosaic.animated).toEqual(true);
-    });
-});
-
 describe('updating with elements', function() {
     const mosaic = new Mosaic();
     const expectColumnLenght = function(mosaic, expectLenght) {
@@ -46,18 +38,18 @@ describe('updating with elements', function() {
         mosaic.update([[1, 2, 3], [1, 2, 3]]);
         mosaic.right();
         mosaic.right();
-        expect(mosaic.x).toBe(2);
-        expect(mosaic.y).toBe(0);
+        expect(mosaic.y).toBe(2);
+        expect(mosaic.x).toBe(0);
 
         mosaic.down();
         mosaic.right();
-        expect(mosaic.x).toBe(2);
-        expect(mosaic.y).toBe(1);
+        expect(mosaic.y).toBe(2);
+        expect(mosaic.x).toBe(1);
 
         mosaic.left();
         mosaic.up();
-        expect(mosaic.x).toBe(1);
-        expect(mosaic.y).toBe(0);
+        expect(mosaic.y).toBe(1);
+        expect(mosaic.x).toBe(0);
     });
 
     test('not squared less', function() {
@@ -65,16 +57,16 @@ describe('updating with elements', function() {
         mosaic.update([[1, 2, 3], [1, 2]]);
         mosaic.right();
         mosaic.right();
-        expect(mosaic.x).toBe(2);
-        expect(mosaic.y).toBe(0);
+        expect(mosaic.y).toBe(2);
+        expect(mosaic.x).toBe(0);
 
         mosaic.down();
-        expect(mosaic.x).toBe(1);
         expect(mosaic.y).toBe(1);
+        expect(mosaic.x).toBe(1);
 
         mosaic.up();
-        expect(mosaic.x).toBe(1);
-        expect(mosaic.y).toBe(0);
+        expect(mosaic.y).toBe(1);
+        expect(mosaic.x).toBe(0);
     });
 
     test('not squared more', function() {
@@ -82,24 +74,24 @@ describe('updating with elements', function() {
         mosaic.update([[1, 2, 3], [1, 2, 3, 4]]);
         mosaic.right();
         mosaic.right();
-        expect(mosaic.x).toBe(2);
-        expect(mosaic.y).toBe(0);
+        expect(mosaic.y).toBe(2);
+        expect(mosaic.x).toBe(0);
 
         mosaic.down();
-        expect(mosaic.x).toBe(2);
-        expect(mosaic.y).toBe(1);
+        expect(mosaic.y).toBe(2);
+        expect(mosaic.x).toBe(1);
 
         mosaic.right();
-        expect(mosaic.x).toBe(3);
-        expect(mosaic.y).toBe(1);
+        expect(mosaic.y).toBe(3);
+        expect(mosaic.x).toBe(1);
 
         mosaic.up();
-        expect(mosaic.x).toBe(2);
-        expect(mosaic.y).toBe(0);
+        expect(mosaic.y).toBe(2);
+        expect(mosaic.x).toBe(0);
 
         mosaic.left();
-        expect(mosaic.x).toBe(1);
-        expect(mosaic.y).toBe(0);
+        expect(mosaic.y).toBe(1);
+        expect(mosaic.x).toBe(0);
     });
 });
 
@@ -110,13 +102,13 @@ describe('up', function() {
 
         mosaic.update([[1, 2, 3], [1, 2, 3]]);
         mosaic.up();
-        expect(mosaic.y).toBe(0);
+        expect(mosaic.x).toBe(0);
 
         mosaic.down();
-        expect(mosaic.y).toBe(1);
+        expect(mosaic.x).toBe(1);
 
         mosaic.up();
-        expect(mosaic.y).toBe(0);
+        expect(mosaic.x).toBe(0);
     });
 });
 
@@ -127,7 +119,7 @@ describe('down', function() {
 
         mosaic.update([[1, 2, 3], [1, 2, 3]]);
         mosaic.down();
-        expect(mosaic.y).toBe(1);
+        expect(mosaic.x).toBe(1);
     });
 });
 
@@ -138,13 +130,13 @@ describe('left', function() {
 
         mosaic.update([[1, 2, 3], [1, 2, 3]]);
         mosaic.left();
-        expect(mosaic.x).toBe(0);
+        expect(mosaic.y).toBe(0);
 
         mosaic.right();
-        expect(mosaic.x).toBe(1);
+        expect(mosaic.y).toBe(1);
 
         mosaic.left();
-        expect(mosaic.x).toBe(0);
+        expect(mosaic.y).toBe(0);
     });
 });
 
@@ -155,6 +147,6 @@ describe('right', function() {
 
         mosaic.update([[1, 2, 3], [1, 2, 3]]);
         mosaic.right();
-        expect(mosaic.x).toBe(1);
+        expect(mosaic.y).toBe(1);
     });
 });

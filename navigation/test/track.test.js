@@ -7,11 +7,6 @@ describe('creating track', function() {
         expect(track.index).toBe(2);
     });
 
-    test('animated', function() {
-        const track = new Track(0, false, 0, true);
-        expect(track.animated).toBe(true);
-    });
-
     test('vertical', function() {
         const track = new Track(0, true);
         expect(track.vertical).toBe(true);

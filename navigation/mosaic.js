@@ -1,7 +1,6 @@
-function Mosaic(animated) {
-	this.x = 0;
-	this.y = 0;
-	this.animated = animated || false;
+function Mosaic(x, y) {
+	this.x = x || 0;
+	this.y = y || 0;
 	this.elements = [[]];
     
 	this.update = function(elements) {
@@ -9,29 +8,29 @@ function Mosaic(animated) {
 	}
 
 	this.up = function() {
-		const prevY = this.y - 1;
-		this.y = prevY < 0 ? this.y : prevY;
-		this.x = Math.min(this.x, this.elements[this.y].length - 1);
+		const prevX = this.x - 1;
+		this.x = prevX < 0 ? this.x : prevX;
+		this.y = Math.min(this.y, this.elements[this.x].length - 1);
 	}
 
 	this.down = function() {
-		const nextY = this.y + 1;
-		this.y = nextY >= this.elements.length ? this.y : nextY;
-		this.x = Math.min(this.x, this.elements[this.y].length - 1);
+		const nextX = this.x + 1;
+		this.x = nextX >= this.elements.length ? this.x : nextX;
+		this.y = Math.min(this.y, this.elements[this.x].length - 1);
 	}
 
 	this.left = function() {
-		const prevX = this.x - 1;
-		this.x = prevX < 0 ? this.x : prevX;
+		const prevY = this.y - 1;
+		this.y = prevY < 0 ? this.y : prevY;
 	}
 
 	this.right = function() {
-		const nextX = this.x + 1;
-		this.x = nextX >= this.elements[this.y].length ? this.x : nextX;
+		const nextY = this.y + 1;
+		this.y = nextY >= this.elements[this.x].length ? this.y : nextY;
 	}
 
 	this.focus = function(element) {
-		const el = this.elements[this.y][this.x];
+		const el = this.elements[this.x][this.y];
 		const currentDOM = element || el;
 
 		if (currentDOM && currentDOM.focus) {

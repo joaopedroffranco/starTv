@@ -1,7 +1,6 @@
-function Group(elements, startindex, animated) {
+function Group(elements, startindex) {
 	this.index = startindex || 0;
 	this.elements = elements;
-	this.animated = animated || false;
 
 	this.next = function() {
 		const nextIndex = this.index + 1;
