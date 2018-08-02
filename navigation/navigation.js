@@ -4,22 +4,21 @@ const Mosaic = require('./mosaic');
 function Navigation(controls) {
     this.controls = controls;
 
-    this.set = function(onReturn, onExit, type, startindex, startGroupIndex) {
-        this.startindex = startindex || 0;
+    this.set = function(onReturn, onExit) {
         this.onReturn = onReturn;
         this.onExit = onExit;
-        this.startGroupIndex = startGroupIndex || 0;
-        
-        switch (type) {
-            case Navigation.types.verticaltrack: this.type = new Track(this.startindex, true, this.startGroupIndex); break;
-            case Navigation.types.horizontaltrack: this.type = new Track(this.startindex, false, this.startGroupIndex); break;
-            case Navigation.types.mosaic: this.type = new Mosaic(startindex, startGroupIndex); break;
-            default: this.type = new Track(this.startindex, false, this.startGroupIndex); break;
-        }
+    }
+
+    this.setType = function(type) {
+        this.type = type;
     }
         
     this.update = function(elements) {
-        this.type.update(elements);
+        if (type) {
+            this.type.update(elements);
+        } else {
+            console.error('Please, set navigation type');
+        }
     }
 
     this.isFirst = function() {
