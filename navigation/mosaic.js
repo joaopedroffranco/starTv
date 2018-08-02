@@ -38,6 +38,14 @@ function Mosaic(x, y) {
 		}
 	}
 
+	this.isFirst = function() {
+		return this.elements.length > 0 && this.x === 0;
+	}
+
+	this.isLast = function() {
+		return this.elements.length > 0 && this.x === this.elements.length - 1;
+	}
+
 	this.hasElements = function() {
 		return !!this.elements.length;
 	}

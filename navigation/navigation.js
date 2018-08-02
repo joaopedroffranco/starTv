@@ -22,6 +22,14 @@ function Navigation(controls) {
         this.type.update(elements);
     }
 
+    this.isFirst = function() {
+        return this.type.isFirst();
+    }
+
+    this.isLast = function() {
+        return this.type.isLast();
+    }
+
     this.focus = function() {
         this.type.focus();
     }

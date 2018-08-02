@@ -81,11 +81,11 @@ function Track(startindex, vertical, startGroupIndex) {
 		}
 	}
 
-	this.isFirstTrack = function() {
+	this.isFirst = function() {
 		return this.groups.length > 0 && this.index === 0;
 	}
 
-	this.isLastTrack = function() {
+	this.isLast = function() {
 		return this.groups.length > 0 && this.index === this.groups.length - 1;
 	}
 

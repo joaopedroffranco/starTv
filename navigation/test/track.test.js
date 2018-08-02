@@ -419,16 +419,16 @@ describe('checks if is a first track', function() {
     test('track with no group', function() {
         const track = new Track(0, false, 0);
         track.update([]);
-        expect(track.isFirstTrack()).toBeFalsy();
+        expect(track.isFirst()).toBeFalsy();
     });
 
     test('track with 2 group', function() {
         const track = new Track(0, false, 0);
         track.update([[1], [1]]);
-        expect(track.isFirstTrack()).toBeTruthy();
+        expect(track.isFirst()).toBeTruthy();
 
         track.down();
-        expect(track.isFirstTrack()).toBeFalsy();
+        expect(track.isFirst()).toBeFalsy();
     });
 });
 
@@ -436,15 +436,15 @@ describe('checks if is a last track', function() {
     test('track with no group', function() {
         const track = new Track(0, false, 0);
         track.update([]);
-        expect(track.isLastTrack()).toBeFalsy();
+        expect(track.isLast()).toBeFalsy();
     });
 
     test('track with 2 group', function() {
         const track = new Track(0, false, 0);
         track.update([[1], [1]]);
-        expect(track.isLastTrack()).toBeFalsy();
+        expect(track.isLast()).toBeFalsy();
 
         track.down();
-        expect(track.isLastTrack()).toBeTruthy();
+        expect(track.isLast()).toBeTruthy();
     });
 });
