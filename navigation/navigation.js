@@ -64,9 +64,8 @@ function Navigation(controls) {
 }
 
 Navigation.types = {
-    verticaltrack: 1,
-    horizontaltrack: 2,
-    mosaic: 3
+    verticaltrack: true,
+    horizontaltrack: false
 }
 
 module.exports = Navigation;
