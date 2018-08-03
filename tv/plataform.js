@@ -11,7 +11,7 @@ function Plataform() {
 }
 
 Plataform.prototype.router = function(pathname) {
-	const path = this.current.path;
+	const path = this.settings.path;
 	return '/' + path + '/' + pathname;
 }
 
