@@ -1,0 +1,51 @@
+/* Devices */
+.devices-container {
+    left: 0;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 50px;
+    transition: left .1s linear;
+}
+
+/* Device */
+.device-button {
+    display: inline-block;
+    background-color: rgb(87, 87, 87);
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 3px 3px 10px #686767;
+    border: none;
+    height: 200px;
+    width: 200px;
+}
+
+.device-button:focus {
+    transform: scale(1.2);
+    background-color: #5f0f73;
+    outline: none;
+}
+
+.device-button > p {
+    font-family: 'Raleway';
+    font-size: 20px;
+    color: #fff;
+}
+
+.device-button > .device-toggle {
+    background-repeat: no-repeat;
+    background-size: 30%;
+    height: 60px;
+    background-position: center;
+}
+
+.on {
+    background-image: url('../../asset/icon/on.png');
+}
+
+.off {
+    background-image: url('../../asset/icon/off.png');
+}

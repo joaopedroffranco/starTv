@@ -1,0 +1,29 @@
+.menu-container {
+    position: absolute;
+    background-color: rgb(252, 134, 134);
+    top: 0;
+    height: 100%;
+    width: 20%;
+    z-index: 2;
+}
+
+.menu-container > p {
+    color: #eee;
+    margin: 20px;
+    font-size: 40px;
+}
+
+.menu-item {
+    display: block;
+    background-color: transparent;
+    margin: 40px;
+    width: 40%;
+    font-size: 30px;
+    color: #eee;
+    border: none;
+    text-decoration: none;
+}
+
+.menu-item:focus {
+    background-color: #5f0f73;
+}

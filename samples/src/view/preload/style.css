@@ -1,0 +1,23 @@
+.icon-on {
+    background-image: url('../../asset/icon/on.png');
+    display: none;
+}
+
+.icon-off {
+    background-image: url('../../asset/icon/off.png');
+    display: none;
+}
+
+@font-face {
+    font-family: Raleway;
+    src: url('../../asset/font/Raleway/Raleway-Medium.ttf');
+}
+
+@font-face {
+    font-family: Raleway-Bold;
+    src: url('../../asset/font/Raleway/Raleway-Bold.ttf');
+}
+
+.fonts {
+    font-family: 'Raleway';
+}

@@ -1,0 +1,8 @@
+.tracks-container {
+    top: 0;
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    transition: top .1s linear;
+}
