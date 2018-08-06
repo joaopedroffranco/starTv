@@ -1,6 +1,6 @@
 {
   "name": "startv",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "description": "Navigation module for web hosted apps in TVs",
   "main": "index.js",
   "scripts": {
