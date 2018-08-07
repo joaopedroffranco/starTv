@@ -1,5 +1,12 @@
 const Group = require('./group');
 
+/**
+ * Track class. It is a navigation type. 
+ * 
+ * @param {Number} startindex A start track index, that representes the current group. Default is 0
+ * @param {Boolean} vertical Defines if the track is vertical or horizontal
+ * @param {Number} startGroupIndex A start index at current group. Used to secure the navigation state. Default is 0
+ */
 function Track(startindex, vertical, startGroupIndex) {
 	this.index = startindex;
 	this.vertical = vertical;

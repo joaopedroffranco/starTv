@@ -2,17 +2,18 @@ const Track = require('./track');
 const Mosaic = require('./mosaic');
 
 /**
- * Navigation
- * @param {Object} controls 
+ * Navigation class
+ * 
+ * @param {Object} controls
  */
 function Navigation(controls) {
     this.controls = controls;
 
     /**
-     * Called on didMount screen
+     * Set the navigation. Called on didMount screen
      * 
-     * @param {Function} onReturn 
-     * @param {Function} onExit 
+     * @param {Function} onReturn will be called when the user pressed return key.
+     * @param {Function} onExit will be called when the user pressed exit key
      */
     this.set = function(onReturn, onExit) {
         this.onReturn = onReturn;
@@ -22,16 +23,16 @@ function Navigation(controls) {
     /**
      * Set the navigation type
      * 
-     * @param {Mosaic or Track} type 
+     * @param {Mosaic or Track} type
      */
     this.setType = function(type) {
         this.type = type;
     }
         
     /**
-     * Called on got elements references
+     * Update elements references
      * 
-     * @param {Array[Array]} elements 
+     * @param {Array[Array]} elements
      */
     this.update = function(elements) {
         if (this.type) {
@@ -42,30 +43,30 @@ function Navigation(controls) {
     }
 
     /**
-     * Called to check if the current element is the first one
+     * Check if the current element is the first one
      */
     this.isFirst = function() {
         return this.type && this.type.isFirst();
     }
 
     /**
-     * Called to check if the current element is the last one
+     * Check if the current element is the last one
      */
     this.isLast = function() {
         return this.type && this.type.isLast();
     }
 
     /**
-     * Called to focus something.
+     * Focus something
      */
     this.focus = function() {
         if (this.type) this.type.focus();
     }
         
     /**
-     * Called on keydown pressed. Get the keycode from event listener.
+     * Called on keydown pressed
      * 
-     * @param {Number} keycode 
+     * @param {Number} keycode get from event listener
      */
     this.move = function(keycode) {
         if (this.type) {
