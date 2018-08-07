@@ -30,7 +30,7 @@ class Tracks extends React.Component {
 
 	scroll(keyCode) {
 		const horizontal = keyCode === Plataform.current.navigation.controls.right || keyCode === Plataform.current.navigation.controls.left;
-		const vertical = !horizontal && keyCode === Plataform.current.navigation.controls.down || keyCode === Plataform.current.navigation.controls.up;
+		const vertical = !horizontal && (keyCode === Plataform.current.navigation.controls.down || keyCode === Plataform.current.navigation.controls.up);
 
 		if (horizontal) {
 			const currentIndex = Plataform.current.navigation.type.index;
