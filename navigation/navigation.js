@@ -1,18 +1,38 @@
 const Track = require('./track');
 const Mosaic = require('./mosaic');
 
+/**
+ * Navigation
+ * @param {Object} controls 
+ */
 function Navigation(controls) {
     this.controls = controls;
 
+    /**
+     * Called on didMount screen
+     * 
+     * @param {Function} onReturn 
+     * @param {Function} onExit 
+     */
     this.set = function(onReturn, onExit) {
         this.onReturn = onReturn;
         this.onExit = onExit;
     }
 
+    /**
+     * Set the navigation type
+     * 
+     * @param {Mosaic or Track} type 
+     */
     this.setType = function(type) {
         this.type = type;
     }
         
+    /**
+     * Called on got elements references
+     * 
+     * @param {Array[Array]} elements 
+     */
     this.update = function(elements) {
         if (this.type) {
             this.type.update(elements);
@@ -21,18 +41,32 @@ function Navigation(controls) {
         }
     }
 
+    /**
+     * Called to check if the current element is the first one
+     */
     this.isFirst = function() {
         return this.type && this.type.isFirst();
     }
 
+    /**
+     * Called to check if the current element is the last one
+     */
     this.isLast = function() {
         return this.type && this.type.isLast();
     }
 
+    /**
+     * Called to focus something.
+     */
     this.focus = function() {
         if (this.type) this.type.focus();
     }
         
+    /**
+     * Called on keydown pressed. Get the keycode from event listener.
+     * 
+     * @param {Number} keycode 
+     */
     this.move = function(keycode) {
         if (this.type) {
             if (this.type.hasElements()) {
