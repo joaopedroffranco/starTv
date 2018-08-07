@@ -68,7 +68,7 @@ Uma navegação desse tipo possui um `index` e vários grupos, sendo cada um com
 
 Tecnicamente falando, ao instanciar um `Track`, voce passa qual o `index` inicial (default é 0), se é `vertical` (true ou false), e qual `index` dentro do grupo atual (default é 0, esse é mais usado para assegurar o último estado da navegação).
 
-Os elementos devem ser passados dessa forma: [[<button/>,<button/>,<button/>], [<button/>,<button/>,<button/>], ...].
+Os elementos devem ser passados dessa forma: `[[<a/>,<a/>,<a/>], [<a/>,<a/>,<a/>], ...]`.
 
 ####  Mosaico
 É um tipo de navegação, chamada `Mosaic`.
@@ -78,7 +78,7 @@ Uma navegação desse tipo possui um `x` e um `y`. Ao ir para cima ou para baixa
 
 Tecnicamente falando, ao instanciar um `Mosaic`, voce passa qual o `x` (default é 0) e qual é o `y` (default é 0).
 
-Os elementos devem ser passados dessa forma: [[<button/>,<button/>,<button/>], [<button/>,<button/>,<button/>], ...].
+Os elementos devem ser passados dessa forma: `[[<a/>,<a/>,<a/>], [<a/>,<a/>,<a/>], ...]`.
 
 
 
