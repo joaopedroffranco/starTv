@@ -49,7 +49,7 @@ Após isso, voce precisa montar sua navegação...
 
 ### Navigation
 Como disse, sua instancia de `Plataform` possui uma propriedade `navigation` da classe `Navigation`.
-Ela tem como propriedade `controls` com mapeamento dos controles remotos `(left, right, up, down, return, exit, etc...)`. Voce não sabe qual código do `left` para LG åe nem da Samsung, mas voce precisa saber? Não, só precisa saber que ele clicou `left` ;)
+Ela tem como propriedade `controls` com mapeamento dos controles remotos `(left, right, up, down, return, exit, etc...)`. Voce não sabe qual código do `left` para LG e nem da Samsung, mas voce precisa saber? Não, só precisa saber que ele clicou `left` ;)
 
 Toda tela tem sua navegação, logo, ao ser montada sua tela, voce deve chamar o `set`, passando métodos de `onReturn` e `onExit`, métodos que serão chamados caso usuário clique no botão voltar ou sair, respectivamente, do controle remoto.
 
