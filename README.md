@@ -31,7 +31,7 @@ Em alguma das primeiras telas da sua aplicação, voce vai criar uma instancia *
 ### Plataform
 Automaticamente, ele descobrirá em qual plataforma de TV voce está trabalhando, construirá uma instancia de navegação `navigation` e chamará as dependencias necessárias. A propriedade `settings` é o objeto com tudo que sua plataforma de TV possui.
 Porém, não é tão mágico assim, voce precisa dizer a ele.
-Como? Sua aplicação nativa deve executar um conteúdo Web Hosted da seguinte forma: http://{dominio}/{plataform}. Sendo que `plataform` deve ter um dos seguintes valores: 
+Como? Sua aplicação nativa deve executar um conteúdo Web Hosted da seguinte forma: `http://{dominio}/{plataform}`. Sendo que `plataform` deve ter um dos seguintes valores: 
 
 | plataform | Plataforma |
 | ------ | ------ |
