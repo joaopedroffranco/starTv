@@ -22,9 +22,9 @@ Execute `npm install --save startv` para instalar e salvar nas dependencias do p
 ## Como usar?
 Há uma hierarquia no módulo:
 
-Plataforma `startv/tv/plataform`
-    Navegação `startv/navigation/navigation`
-        Tipo (Trilho ou Mosaico) `startv/navigation/track` ou `startv/navigation/mosaic`
+- Plataforma `startv/tv/plataform`
+  - Navegação `startv/navigation/navigation`
+    - Tipo (Trilho ou Mosaico) `startv/navigation/track` ou `startv/navigation/mosaic`
 
 Em alguma das primeiras telas da sua aplicação, voce vai criar uma instancia *global* de `Plataform`.
 
